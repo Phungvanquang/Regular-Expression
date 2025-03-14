@@ -1,0 +1,87 @@
+Tuyệt vời! Chúng ta sẽ đi sâu vào các ví dụ cụ thể để bạn có thể nắm bắt Regex một cách trực quan hơn.
+
+**1. Khớp các chuỗi ký tự đơn giản:**
+
+* **Mẫu:** `hello`
+    * **Chuỗi khớp:** "hello world", "say hello", "hello there"
+    * **Mô tả:** Khớp chính xác chuỗi "hello".
+* **Mẫu:** `123`
+    * **Chuỗi khớp:** "12345", "test 123", "123"
+    * **Mô tả:** Khớp chính xác chuỗi "123".
+
+**2. Sử dụng Meta ký tự:**
+
+* **Mẫu:** `.`
+    * **Chuỗi khớp:** "a", "b", "1", "#", " " (bất kỳ ký tự đơn nào)
+    * **Mô tả:** Khớp với bất kỳ ký tự đơn nào (ngoại trừ ký tự xuống dòng).
+* **Mẫu:** `.*`
+    * **Chuỗi khớp:** "", "abc", "123", "hello world" (bất kỳ chuỗi nào)
+    * **Mô tả:** Khớp với 0 hoặc nhiều lần xuất hiện của bất kỳ ký tự nào.
+* **Mẫu:** `\d+`
+    * **Chuỗi khớp:** "1", "123", "9999"
+    * **Mô tả:** Khớp với một hoặc nhiều chữ số liên tiếp.
+* **Mẫu:** `\w+`
+    * **Chuỗi khớp:** "word", "test", "variable123"
+    * **Mô tả:** Khớp với một hoặc nhiều ký tự chữ cái, chữ số hoặc gạch dưới.
+* **Mẫu:** `\s+`
+    * **Chuỗi khớp:** " ", "\t", "\n" (một hoặc nhiều ký tự khoảng trắng)
+    * **Mô tả:** Khớp với một hoặc nhiều ký tự khoảng trắng (dấu cách, tab, xuống dòng).
+
+**3. Sử dụng Lớp ký tự:**
+
+* **Mẫu:** `[aeiou]`
+    * **Chuỗi khớp:** "a", "e", "i", "o", "u"
+    * **Mô tả:** Khớp với bất kỳ nguyên âm nào.
+* **Mẫu:** `[a-z]`
+    * **Chuỗi khớp:** "a", "b", "c", ..., "z"
+    * **Mô tả:** Khớp với bất kỳ chữ cái thường nào.
+* **Mẫu:** `[A-Z]`
+    * **Chuỗi khớp:** "A", "B", "C", ..., "Z"
+    * **Mô tả:** Khớp với bất kỳ chữ cái hoa nào.
+* **Mẫu:** `[0-9]`
+    * **Chuỗi khớp:** "0", "1", "2", ..., "9"
+    * **Mô tả:** Khớp với bất kỳ chữ số nào.
+* **Mẫu:** `[^0-9]`
+    * **Chuỗi khớp:** "a", "b", "#", "$" (bất kỳ ký tự nào không phải chữ số)
+    * **Mô tả:** Khớp với bất kỳ ký tự nào không phải chữ số.
+
+**4. Sử dụng Lượng từ:**
+
+* **Mẫu:** `a{3}`
+    * **Chuỗi khớp:** "aaa"
+    * **Mô tả:** Khớp chính xác 3 lần ký tự "a".
+* **Mẫu:** `a{2,4}`
+    * **Chuỗi khớp:** "aa", "aaa", "aaaa"
+    * **Mô tả:** Khớp từ 2 đến 4 lần ký tự "a".
+* **Mẫu:** `a{2,}`
+    * **Chuỗi khớp:** "aa", "aaa", "aaaa", "aaaaa", ...
+    * **Mô tả:** Khớp 2 lần trở lên ký tự "a".
+* **Mẫu:** `a?`
+    * **Chuỗi khớp:** "", "a"
+    * **Mô tả:** Khớp 0 hoặc 1 lần ký tự "a".
+* **Mẫu:** `a*`
+    * **Chuỗi khớp:** "", "a", "aa", "aaa", ...
+    * **Mô tả:** Khớp 0 hoặc nhiều lần ký tự "a".
+* **Mẫu:** `a+`
+    * **Chuỗi khớp:** "a", "aa", "aaa", ...
+    * **Mô tả:** Khớp 1 lần trở lên ký tự "a".
+
+**5. Sử dụng nhóm và lựa chọn:**
+
+* **Mẫu:** `(ab)+`
+    * **Chuỗi khớp:** "ab", "abab", "ababab"
+    * **Mô tả:** Khớp một hoặc nhiều lần chuỗi "ab".
+* **Mẫu:** `(a|b)`
+    * **Chuỗi khớp:** "a", "b"
+    * **Mô tả:** Khớp ký tự "a" hoặc ký tự "b".
+
+**6. Ví dụ kết hợp:**
+
+* **Mẫu:** `\d{3}-\d{3}-\d{4}`
+    * **Chuỗi khớp:** "123-456-7890" (định dạng số điện thoại)
+    * **Mô tả:** Khớp chuỗi có định dạng 3 chữ số, dấu gạch ngang, 3 chữ số, dấu gạch ngang, 4 chữ số.
+* **Mẫu:** `[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}`
+    * **Chuỗi khớp:** "[đã xoá địa chỉ email]", "[đã xoá địa chỉ email]" (định dạng email)
+    * **Mô tả:** Khớp chuỗi có định dạng email hợp lệ.
+
+Để thực hành tốt hơn bạn nên sử dụng các trang web hỗ trợ kiểm tra Regex trực tuyến, ở đó bạn có thể thử nghiệm các mẫu và xem kết quả trực quan. Chúc bạn thành công!
